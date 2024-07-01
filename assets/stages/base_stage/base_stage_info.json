@@ -1,0 +1,54 @@
+{
+	"mission_uid": "TEST",
+	"mission_path": "res://assets/stage/base_stage/base_stage.tscn",
+	"enemy_count": 2,
+	"life_total": 2,
+	"enemy_spawns": {
+		"count": 2,
+		"0_x": 11,
+		"0_y": 1,
+		"1_x": 11,
+		"1_y": 7
+	},
+	"obj":{
+		"count": 2,
+		"0_x": 4,
+		"0_y": 1,
+		"1_x": 2,
+		"1_y": 3,
+		"2_x": 4,
+		"2_y": 4
+	},
+	"deployable_melee":{
+		"count": 4,
+		"0_x": 7,
+		"0_y": 2,
+		"1_x": 7,
+		"1_y": 3,
+		"2_x": 7,
+		"2_y": 4,
+		"3_x": 6,
+		"3_y": 5
+	},
+	"deployable_ranged":{
+		"count": 4,
+		"0_x": 6,
+		"0_y": 1,
+		"1_x": 6,
+		"1_y": 2,
+		"2_x": 5,
+		"2_y": 6,
+		"3_x": 5,
+		"3_y": 7
+	},
+	"pcs":{
+		"count": 2,
+		"0": "test",
+		"0_cost": 12,
+		"1": "test",
+		"1_cost": 12
+	},
+	"tile_set":{
+		"path": "res://assets/stage/grid/base_grid/test_grid.tres"
+	}
+}

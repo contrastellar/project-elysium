@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://detqcstes0dk0"]
+
+[ext_resource type="Script" path="res://assets/stages/base_stage/BaseStage.gd" id="1_8p0ps"]
+
+[node name="BaseStage" type="Node2D"]
+script = ExtResource("1_8p0ps")
