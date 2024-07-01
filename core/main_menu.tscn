@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://fo4a5xt6gpwb"]
+
+[ext_resource type="Texture2D" uid="uid://c0f170nimqldc" path="res://core/Elysium_logo_test.png" id="1_6ckia"]
+
+[node name="MainMenu" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -99
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0.32549, 0.337255, 1, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 511.0
+offset_top = 8.0
+offset_right = 971.0
+offset_bottom = 268.0
+grow_horizontal = 2
+scale = Vector2(0.65, 0.65)
+size_flags_vertical = 0
+texture = ExtResource("1_6ckia")
+metadata/_edit_use_anchors_ = true
