@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://wfq21rdff46j"]
+[gd_scene load_steps=3 format=3 uid="uid://wfq21rdff46j"]
 
 [ext_resource type="Script" path="res://core/scene_manager.gd" id="1_ci5ga"]
+[ext_resource type="PackedScene" uid="uid://fo4a5xt6gpwb" path="res://core/main_menu.tscn" id="2_atn47"]
 
 [node name="SceneManager" type="Node"]
 script = ExtResource("1_ci5ga")
+first_scene = ExtResource("2_atn47")

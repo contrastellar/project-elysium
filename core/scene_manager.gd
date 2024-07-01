@@ -18,6 +18,12 @@ var _remove_game_over_screen: bool = false
 func _ready() -> void:
 	var first_scene_node: Node
 	first_scene_node = first_scene.instantiate()
+	# INFO cannot forget to set the current_scene_node at initialization,
+	# otherwise you will get an error trying to move between scenes
+	
+	current_scene_node = first_scene_node
+	
+	# add the newly instantiated child to the tree
 	add_child(first_scene_node)
 	# TODO set current scene to the first_scene_node
 

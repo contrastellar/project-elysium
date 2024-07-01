@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://fo4a5xt6gpwb"]
+[gd_scene load_steps=3 format=3 uid="uid://fo4a5xt6gpwb"]
 
 [ext_resource type="Texture2D" uid="uid://c0f170nimqldc" path="res://core/Elysium_logo_test.png" id="1_6ckia"]
+[ext_resource type="Script" path="res://core/main_menu.gd" id="1_o7x1b"]
 
 [node name="MainMenu" type="Node2D"]
+script = ExtResource("1_o7x1b")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -99
@@ -13,12 +15,30 @@ color = Color(0.32549, 0.337255, 1, 1)
 [node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = 511.0
-offset_top = 8.0
-offset_right = 971.0
-offset_bottom = 268.0
+offset_left = 512.0
+offset_top = 71.0
+offset_right = 972.0
+offset_bottom = 331.0
 grow_horizontal = 2
 scale = Vector2(0.65, 0.65)
 size_flags_vertical = 0
 texture = ExtResource("1_6ckia")
 metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 590.0
+offset_top = 488.0
+offset_right = 737.0
+offset_bottom = 519.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Gameplay Demo"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

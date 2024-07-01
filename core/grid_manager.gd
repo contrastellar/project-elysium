@@ -1,6 +1,8 @@
-extends Control
-class_name GameOverScreen
+extends Node2D
+class_name GridManager
 
+
+# The manager for the player grid and the pc 'deck'
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
