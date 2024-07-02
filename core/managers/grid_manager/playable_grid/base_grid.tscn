@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dx1rmccwih2sn"]
+
+[ext_resource type="Script" path="res://core/managers/grid_manager/playable_grid/base_grid.gd" id="1_ff8b1"]
+
+[node name="BaseGrid" type="TileMap"]
+format = 2
+script = ExtResource("1_ff8b1")

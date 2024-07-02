@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://uu0cpuk5m26n"]
+
+[ext_resource type="Script" path="res://core/managers/pc_manager/pc_manager.gd" id="1_jvs4h"]
+[ext_resource type="Script" path="res://core/managers/pc_manager/Deck.gd" id="2_34i2q"]
+
+[node name="PcManager" type="Node2D"]
+script = ExtResource("1_jvs4h")
+
+[node name="Deck" type="TileMap" parent="."]
+format = 2
+script = ExtResource("2_34i2q")

@@ -1,57 +1,75 @@
-[gd_scene load_steps=2 format=3 uid="uid://detqcstes0dk0"]
+[gd_scene load_steps=5 format=3 uid="uid://ckc46cukuja70"]
 
-[ext_resource type="Script" path="res://assets/stages/base_stage/BaseStage.gd" id="1_8p0ps"]
+[ext_resource type="Script" path="res://assets/stages/base_stage/base_stage.gd" id="1_0s68w"]
+[ext_resource type="Script" path="res://core/managers/game_manager/game_manager.gd" id="2_27d2k"]
+[ext_resource type="Script" path="res://core/managers/grid_manager/grid_manager.gd" id="3_nqdbs"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hyw3h"]
+font_color = Color(1, 1, 1, 0.572549)
 
 [node name="BaseStage" type="Node2D"]
-script = ExtResource("1_8p0ps")
-
-[node name="Background" type="ColorRect" parent="."]
-z_index = -99
-offset_right = 1280.0
-offset_bottom = 720.0
-mouse_filter = 2
-color = Color(0.0627451, 0.0627451, 0.0627451, 1)
+script = ExtResource("1_0s68w")
 
 [node name="gui_elements" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-mouse_filter = 2
 
-[node name="health" type="Label" parent="gui_elements"]
-layout_mode = 1
-offset_left = 183.0
-offset_right = 241.0
-offset_bottom = 23.0
-text = "LIFE = 0"
-
-[node name="enemy_count" type="Label" parent="gui_elements"]
+[node name="life" type="Label" parent="gui_elements"]
 layout_mode = 0
-offset_left = 392.0
-offset_right = 474.0
+offset_left = 500.0
+offset_right = 542.0
 offset_bottom = 23.0
-text = "ENEMY = 0"
+text = "life = "
 
 [node name="enemy_total" type="Label" parent="gui_elements"]
 layout_mode = 0
-offset_left = 608.0
-offset_right = 685.0
+offset_left = 650.0
+offset_right = 761.0
 offset_bottom = 23.0
-text = "TOTAL = 0"
+text = "enemy total = "
 
-[node name="mission_uid" type="Label" parent="gui_elements"]
+[node name="enemy_count" type="Label" parent="gui_elements"]
+layout_mode = 0
+offset_left = 800.0
+offset_right = 915.0
+offset_bottom = 23.0
+text = "enemy count ="
+
+[node name="uid" type="Label" parent="gui_elements"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
+text = "NO UID GIVEN"
+label_settings = SubResource("LabelSettings_hyw3h")
 
-[node name="menu_return" type="Button" parent="gui_elements"]
-z_index = 99
+[node name="return_home" type="Button" parent="gui_elements"]
 layout_mode = 0
-offset_left = 1069.0
-offset_right = 1199.0
+offset_left = 1100.0
+offset_right = 1230.0
 offset_bottom = 31.0
-mouse_default_cursor_shape = 3
 text = "Return to Menu"
 
-[connection signal="pressed" from="gui_elements/menu_return" to="." method="_on_menu_return_pressed"]
+[node name="spawn_enemy" type="Button" parent="gui_elements"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Spawn Enemy"
+
+[node name="ColorRect" type="ColorRect" parent="gui_elements"]
+z_index = -99
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+mouse_filter = 2
+color = Color(0.176471, 0.176471, 0.176471, 1)
+
+[node name="GameManager" type="Node2D" parent="."]
+script = ExtResource("2_27d2k")
+
+[node name="GridManager" type="Node2D" parent="."]
+script = ExtResource("3_nqdbs")
+
+[connection signal="pressed" from="gui_elements/return_home" to="." method="_on_return_home_pressed"]
+[connection signal="pressed" from="gui_elements/spawn_enemy" to="." method="_on_spawn_enemy_pressed"]

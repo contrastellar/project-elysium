@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2tsikngwlhmk"]
+
+[ext_resource type="Script" path="res://core/managers/grid_manager/grid_manager.gd" id="1_0g7i4"]
+[ext_resource type="Script" path="res://core/managers/grid_manager/playable_grid/base_grid.gd" id="3_7fmof"]
+[ext_resource type="Script" path="res://core/managers/pc_manager/Deck.gd" id="3_q6mi5"]
+
+[node name="GridManager" type="Node2D"]
+script = ExtResource("1_0g7i4")
+
+[node name="BaseGrid" type="TileMap" parent="."]
+format = 2
+script = ExtResource("3_7fmof")
+
+[node name="PCDeck" type="TileMap" parent="."]
+format = 2
+script = ExtResource("3_q6mi5")
