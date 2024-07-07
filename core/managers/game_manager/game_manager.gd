@@ -8,7 +8,7 @@ signal game_over
 var grid_manager: GridManager
 var arena: BaseStage # Should be the parent
 var playable_grid: BaseGrid
-var pc_grid: PCDeck
+var pc_manager: PCManager
 
 
 var _is_setup: bool
@@ -42,9 +42,6 @@ var _ranged_tile_count: int
 var _pc_count: int
 var pc_types: Array = Array()
 
-# GridManager related variables
-
-
 # Signal processing
 var __game_over_sent: bool
 
@@ -52,7 +49,14 @@ var __game_over_sent: bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	assert(get_parent() is BaseStage)
+	arena = get_parent()
+	grid_manager = arena.get_node('./GridManager')
+	assert(grid_manager is GridManager)
+	playable_grid = grid_manager.arena_grid
+	pc_manager = grid_manager.pc_manager
+	assert(playable_grid is BaseGrid)
+	assert(pc_manager is PCManager)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 @warning_ignore("unused_parameter")
@@ -147,10 +151,11 @@ func return_obj_coords(id: int) -> Vector2i:
 	var vector = Vector2i(_protection_objectives[x_coord], _protection_objectives[y_coord])
 	return playable_grid.return_grid_position(vector)
 
+
 func get_tile_set() -> TileSet:
 	var output: TileSet
 	
-	if mission_uid == "TEST":
+	if mission_uid == "T":
 		output = preload('res://assets/stages/base_stage/test_grid.tres')
 	
 	
@@ -163,12 +168,12 @@ func spawn_enemy(spawn_id: int, obj_target: int) -> void:
 	# grid coords?) and then spawn a child enemy there.
 	if enemies_spawned < enemy_total:
 		# FIXME need to fix this when i get the grid system working again
-		#var enemy = enemy_scene.instantiate()
-		#enemy.position = return_spawn_coords(spawn_id)
-		#enemy.next_point = return_obj_coords(obj_target)
-		## Add this newly instantiated Node as a child of the Arena scene
-		#arena.grid.add_child(enemy)
-		#enemies_spawned = enemies_spawned + 1
-		#arena.set_active_count(enemies_spawned)
-		pass
+		var enemy = enemy_scene.instantiate()
+		enemy.position = return_spawn_coords(spawn_id)
+		enemy.next_point = return_obj_coords(obj_target)
+		# Add this newly instantiated Node as a child of the Arena scene
+		arena.grid_manager.arena_grid.add_child(enemy)
+		enemies_spawned = enemies_spawned + 1
+		arena.set_active_count(enemies_spawned)
+	
 	return

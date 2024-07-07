@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 class_name PCManager
 
 var pc_deck: PCDeck

@@ -3,7 +3,9 @@
 [ext_resource type="Script" path="res://core/managers/pc_manager/pc_manager.gd" id="1_jvs4h"]
 [ext_resource type="Script" path="res://core/managers/pc_manager/Deck.gd" id="2_34i2q"]
 
-[node name="PcManager" type="Node2D"]
+[node name="PcManager" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_jvs4h")
 
 [node name="Deck" type="TileMap" parent="."]

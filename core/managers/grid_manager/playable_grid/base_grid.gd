@@ -34,16 +34,9 @@ func _ready():
 	
 	# This allows things to move diagonal
 	# We don't want that, so we're disabling it
-	_astar.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_ONLY_IF_NO_OBSTACLES
+	_astar.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_NEVER
 	
 	_astar.update()
-		
-	for i in range(0, _astar.region.end.x):
-		for j in range(0, _astar.region.end.y):
-			var pos = Vector2i(i, j)
-			if get_cell_source_id(0, pos) == tiles.meteor:
-				_astar.set_point_solid(pos)
-	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -78,10 +71,12 @@ func is_point_walkable(local_position):
 		return not _astar.is_point_solid(map_position)
 	return false
 
+
 # Clear the path
 func clear_path():
 	if not _path.is_empty():
 		_path.clear()
+
 
 # Find the path between two points on the map, using the AStar methodology
 func find_path(local_start_point, local_end_point):
@@ -93,6 +88,7 @@ func find_path(local_start_point, local_end_point):
 	_path = _astar.get_point_path(_start_point, _end_point)
 
 	return _path.duplicate()
+
 
 # Function that returns a bool that dictates whether or not 
 # a position is "droppable" for melee characters
@@ -108,6 +104,7 @@ func is_melee_droppable(pos: Vector2i) -> bool:
 	
 	return false
 
+
 func is_ranged_droppable(pos: Vector2i) -> bool:
 	# Normalize the point to the grid
 	var _pos = normalize_point_to_grid(pos)
@@ -118,7 +115,16 @@ func is_ranged_droppable(pos: Vector2i) -> bool:
 		return true
 	
 	return false
-	
+
 func set_tile_set(_ts: TileSet) -> bool:
 	tile_set = _ts
+	
 	return tile_set is TileSet
+
+
+func update_tiles() -> void:
+	for i in range(0, _astar.region.end.x):
+		for j in range(0, _astar.region.end.y):
+			var pos = Vector2i(i, j)
+			if get_cell_source_id(0, pos) == tiles.meteor:
+				_astar.set_point_solid(pos)

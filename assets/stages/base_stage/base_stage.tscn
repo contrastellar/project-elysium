@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://ckc46cukuja70"]
 
 [ext_resource type="Script" path="res://assets/stages/base_stage/base_stage.gd" id="1_0s68w"]
-[ext_resource type="Script" path="res://core/managers/game_manager/game_manager.gd" id="2_27d2k"]
-[ext_resource type="Script" path="res://core/managers/grid_manager/grid_manager.gd" id="3_nqdbs"]
+[ext_resource type="PackedScene" uid="uid://c2tsikngwlhmk" path="res://core/managers/grid_manager/grid_manager.tscn" id="2_2yxew"]
+[ext_resource type="PackedScene" uid="uid://da5dww26y1bn6" path="res://core/managers/game_manager/game_manager.tscn" id="3_wtsor"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hyw3h"]
 font_color = Color(1, 1, 1, 0.572549)
@@ -65,11 +65,9 @@ offset_bottom = 720.0
 mouse_filter = 2
 color = Color(0.176471, 0.176471, 0.176471, 1)
 
-[node name="GameManager" type="Node2D" parent="."]
-script = ExtResource("2_27d2k")
+[node name="GridManager" parent="." instance=ExtResource("2_2yxew")]
 
-[node name="GridManager" type="Node2D" parent="."]
-script = ExtResource("3_nqdbs")
+[node name="GameManager" parent="." instance=ExtResource("3_wtsor")]
 
 [connection signal="pressed" from="gui_elements/return_home" to="." method="_on_return_home_pressed"]
 [connection signal="pressed" from="gui_elements/spawn_enemy" to="." method="_on_spawn_enemy_pressed"]
