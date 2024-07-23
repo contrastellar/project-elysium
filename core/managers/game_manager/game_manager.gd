@@ -25,7 +25,7 @@ var enemies_spawned: int = 0 	# Useful for game management later on
 
 # Mission parameters
 var mission_uid: String = ""	# Useful in referencing the mission internally
-var mission_parameters 			# The type here is irrelevant (I think its a dict)
+var mission_parameters: Dictionary # The type here is irrelevant (I think its a dict)
 var mission_parameters_path: String
 var mission_path: String 		# in case we get lost?
 
@@ -64,8 +64,8 @@ func _process(delta):
 	if life_total == 0 && not __game_over_sent:
 		# At this point, the `game over` screen should play
 		send_game_over()
-	
-	pass
+
+
 
 func send_game_over() -> void:
 	if not __game_over_sent:
@@ -74,9 +74,11 @@ func send_game_over() -> void:
 		print("Emitting!")
 	return
 
+
 func set_mission_parameters_path(path: String) -> String:
 	mission_parameters_path = path
 	return mission_parameters_path
+
 
 func load_mission_parameters() -> void:
 	# Grab the file and access it
@@ -104,6 +106,7 @@ func load_mission_parameters() -> void:
 		pc_types.append(mission_parameters["pcs"][str(i)])
 	
 	return
+
 
 func set_life_total(total) -> int:
 	life_total = total
@@ -173,7 +176,7 @@ func spawn_enemy(spawn_id: int, obj_target: int) -> void:
 		enemy.next_point = return_obj_coords(obj_target)
 		# Add this newly instantiated Node as a child of the Arena scene
 		arena.grid_manager.arena_grid.add_child(enemy)
+		# Set the number of spawned enemies
 		enemies_spawned = enemies_spawned + 1
-		arena.set_active_count(enemies_spawned)
 	
 	return

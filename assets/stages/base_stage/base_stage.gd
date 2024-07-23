@@ -35,6 +35,8 @@ func _ready() -> void:
 	# connect the game_over from the game_manager to the base_stage, giving a
 	# throughline to the scenemanager
 	game_manager.game_over.connect(report_game_over)
+
+	game_over.connect(scene_manager.show_game_over_screen)
 	
 	load_tile_set()
 	
@@ -48,9 +50,9 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	enemy_count = game_manager.enemies_spawned
-	$gui_elements/enemy_total.text = 'TOTAL = ' + str(max_enemies)
-	$gui_elements/enemy_count.text = 'ENEMIES = ' + str(enemy_count)
-	$gui_elements/life.text = 'LIFE = ' + str(life_count)
+	$gui_elements/enemy_total.text = 'TOTAL = ' + str(game_manager.enemy_total)
+	$gui_elements/enemy_count.text = 'ENEMIES = ' + str(game_manager.enemies_spawned)
+	$gui_elements/life.text = 'LIFE = ' + str(game_manager.life_total)
 
 
 func _on_return_home_pressed() -> void:
@@ -79,12 +81,12 @@ func report_game_over() -> void:
 	return
 
 func set_life_total(count: int) -> void:
-	life_count = count
+	game_manager.life_total = count
 	return
 
 
 func set_active_count(count: int) -> void:
-	enemy_count = count
+	game_manager.enemy_total = count
 	return
 
 func set_total_count(count: int) -> void:

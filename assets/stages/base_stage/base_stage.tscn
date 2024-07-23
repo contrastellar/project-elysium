@@ -45,6 +45,7 @@ text = "NO UID GIVEN"
 label_settings = SubResource("LabelSettings_hyw3h")
 
 [node name="return_home" type="Button" parent="gui_elements"]
+z_index = 99
 layout_mode = 0
 offset_left = 1100.0
 offset_right = 1230.0

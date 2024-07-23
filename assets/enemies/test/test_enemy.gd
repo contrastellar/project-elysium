@@ -75,6 +75,6 @@ func _change_state(new_state):
 
 func remove_self() -> void:
 	_game_manager.set_life_total(_game_manager.life_total - 1)
-	_game_manager.set_enemy_active_total(_game_manager.enemies_spawned - 1)
+	_stage.life_count -= 1
 	queue_free()
 	return

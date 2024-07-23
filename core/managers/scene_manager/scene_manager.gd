@@ -9,7 +9,7 @@ class_name SceneManager
 
 var current_scene: PackedScene
 var current_scene_node: Node
-var game_over_screen: PackedScene # TODO add game_over node to this line
+var game_over_screen: PackedScene = preload("res://core/game_over.tscn")
 var _game_over_screen_instance: Control
 var _show_game_over_screen: bool = false
 var _remove_game_over_screen: bool = false
@@ -21,16 +21,29 @@ func _ready() -> void:
 	# INFO cannot forget to set the current_scene_node at initialization,
 	# otherwise you will get an error trying to move between scenes
 	
-	current_scene_node = first_scene_node
+	set_current_scene(first_scene, first_scene_node)
 	
 	# add the newly instantiated child to the tree
 	add_child(first_scene_node)
-	# TODO set current scene to the first_scene_node
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if _show_game_over_screen && not _remove_game_over_screen && _game_over_screen_instance:
+		_game_over_screen_instance.modulate.a += 0.01
+		var screen_alpha = _game_over_screen_instance.modulate.a
+		if screen_alpha >= 1:
+			_show_game_over_screen = false
+
+	elif _remove_game_over_screen && _game_over_screen_instance:
+		_show_game_over_screen = false
+		_game_over_screen_instance.modulate.a -= 0.01
+		var screen_alpha = _game_over_screen_instance.modulate.a
+		if screen_alpha < 0.01:
+			_game_over_screen_instance.modulate.a = 0
+			_game_over_screen_instance.queue_free()
+			_remove_game_over_screen = false
+
 
 func set_current_scene(new_scene: PackedScene, new_scene_node: Node) -> void:
 	current_scene = new_scene
@@ -56,8 +69,9 @@ func return_to_menu() -> void:
 
 
 func show_game_over_screen() -> void:
-	add_child(game_over_screen.instantiate())
-	_game_over_screen_instance = get_child(get_children().find(GameOverScreen))
-	_game_over_screen_instance.set('z_index', 2)
+	var __game_over_instance = game_over_screen.instantiate()
+	add_child(__game_over_instance)
+	_game_over_screen_instance = __game_over_instance
+	_game_over_screen_instance.modulate.a = 0
 	_show_game_over_screen = true
 	return
