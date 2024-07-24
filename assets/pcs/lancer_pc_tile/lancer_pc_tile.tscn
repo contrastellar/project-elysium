@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxf6avsl2pp5q"]
+
+[ext_resource type="Script" path="res://assets/pcs/lancer_pc_tile/lancer_pc_tile.gd" id="1_7dru8"]
+[ext_resource type="Texture2D" uid="uid://btv27u5ejqvqw" path="res://assets/pcs/lancer_pc_tile/lancer_pc_tile.png" id="2_i5u0f"]
+
+[node name="LancerPcTile" type="Node"]
+script = ExtResource("1_7dru8")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_i5u0f")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]

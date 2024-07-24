@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7da8fjeld8yc"]
+
+[ext_resource type="Script" path="res://assets/pcs/base_pc/base_pc.gd" id="1_6yvbr"]
+
+[node name="BasePC" type="Node"]
+script = ExtResource("1_6yvbr")
