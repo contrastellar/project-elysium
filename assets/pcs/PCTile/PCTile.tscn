@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcw0khsjmvwgk"]
+
+[ext_resource type="Script" path="res://assets/pcs/PCTile/PCTile.gd" id="1_d54j5"]
+
+[node name="PcTile" type="Node"]
+script = ExtResource("1_d54j5")

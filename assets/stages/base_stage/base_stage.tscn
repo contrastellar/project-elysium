@@ -39,7 +39,8 @@ text = "enemy count ="
 
 [node name="uid" type="Label" parent="gui_elements"]
 layout_mode = 0
-offset_right = 40.0
+offset_left = 167.42
+offset_right = 277.42
 offset_bottom = 23.0
 text = "NO UID GIVEN"
 label_settings = SubResource("LabelSettings_hyw3h")
