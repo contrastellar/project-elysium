@@ -3,6 +3,9 @@ class_name SceneManager
 
 @export var first_scene: PackedScene
 
+var _current_scene: PackedScene
+var _current_node: Node
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var first_scene_parent_node: Node
@@ -17,4 +20,6 @@ func _process(delta: float) -> void:
 
 
 func set_current_scene(scene: PackedScene, node: Node) -> void:
+	_current_scene = scene
+	_current_node = node
 	pass
