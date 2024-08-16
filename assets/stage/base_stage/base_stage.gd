@@ -1,21 +1,18 @@
 extends Node
-class_name MainMenu
+class_name BaseStage
+
+signal game_end
+signal game_over
 
 var scene_manager: SceneManager
-var gameplay_scene: PackedScene = preload("res://assets/stage/base_stage/BaseStage.tscn")
+var game_manager: GameManager
+var grid_manager: GridManager
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	assert(get_parent() is SceneManager)
-	scene_manager = get_parent()
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
-
-
-func _on_gameplay_demo_pressed() -> void:
-	scene_manager.set_current_scene(gameplay_scene, false)
 	pass

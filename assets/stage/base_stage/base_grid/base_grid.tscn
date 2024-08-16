@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d15gcwkub05le"]
+
+[ext_resource type="Script" path="res://assets/stage/base_stage/base_grid/base_grid.gd" id="1_mj368"]
+
+[node name="BaseGrid" type="Node"]
+script = ExtResource("1_mj368")

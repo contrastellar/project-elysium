@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvvs04cciu278"]
+
+[ext_resource type="Script" path="res://core/managers/gridmanager/PCManager/pc_manager.gd" id="1_mleso"]
+
+[node name="PcManager" type="Node"]
+script = ExtResource("1_mleso")

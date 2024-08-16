@@ -42,3 +42,26 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("3_lyd4g")
 metadata/_edit_use_anchors_ = true
+
+[node name="Container" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="GameplayDemo" type="Button" parent="Container"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 543.0
+offset_top = 361.0
+offset_right = 679.0
+offset_bottom = 392.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Gameplay Demo"
+
+[connection signal="pressed" from="Container/GameplayDemo" to="." method="_on_gameplay_demo_pressed"]

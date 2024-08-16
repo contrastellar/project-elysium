@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2d5cs8hmgv5l"]
+
+[ext_resource type="FontFile" uid="uid://o1jiq4v6yjjt" path="res://core/fonts/GeosansLight.ttf" id="1_gtaug"]
+[ext_resource type="Script" path="res://core/screens/loading/loading.gd" id="1_n4vm7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6hepc"]
+font = ExtResource("1_gtaug")
+
+[node name="Loading" type="Control"]
+z_index = 999
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+script = ExtResource("1_n4vm7")
+
+[node name="TextureRect" type="ColorRect" parent="."]
+layout_mode = 2
+offset_right = 1270.0
+offset_bottom = 720.0
+mouse_filter = 2
+color = Color(0.207843, 0.207843, 0.207843, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 522.0
+offset_top = 171.0
+offset_right = 751.0
+offset_bottom = 194.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "LOADING AND OR TRANSITIONING"
+label_settings = SubResource("LabelSettings_6hepc")
