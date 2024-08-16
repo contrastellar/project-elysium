@@ -23,3 +23,13 @@ func set_current_scene(scene: PackedScene, node: Node) -> void:
 	_current_scene = scene
 	_current_node = node
 	pass
+
+func change_scene(scene: PackedScene) -> void:
+	remove_child(_current_node)
+
+	set_current_scene(null, null)
+
+	var scene_node = scene.instantiate()
+	add_child(scene_node)
+	set_current_scene(scene, scene_node)
+	return

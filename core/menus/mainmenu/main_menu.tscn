@@ -42,3 +42,19 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("3_lyd4g")
 metadata/_edit_use_anchors_ = true
+
+[node name="TestScene" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.5
+offset_top = -15.5
+offset_right = 61.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Test Gameplay"
+
+[connection signal="pressed" from="TestScene" to="." method="_on_test_scene_pressed"]
