@@ -9,7 +9,7 @@ signal game_prepared
 var scene_manager: SceneManager
 var stage_scene: PackedScene
 var stage: BaseStage
-var _arena: TileMapLayer # Will be the playable_grid
+var _arena: BaseGrid # Will be the playable_grid
 var _deck: TileMapLayer # Will be where ANGELs are "stored"
 
 var stage_id: String
@@ -85,7 +85,9 @@ func prepare_game(new_mission_path: String) -> void:
 	add_child(stage)
 	stage.set_stage_id(mission_uid)
 	_arena = stage.find_child("TileMap")
-
+	_arena.update_tiles()
+	game_prepared.emit()
+	return
 
 func set_mission_param_path(path: String) -> String:
 	mission_parameters_path = path
@@ -154,7 +156,7 @@ func return_spawn_coords(id: int) -> Vector2:
 	var y_coord = var_to_str(id)
 	x_coord += "_x"
 	y_coord += "_y"
-	var vector = Vector2(_enemy_spawn_points[x_coord], _enemy_spawn_points[y_coord])
+	var vector = Vector2i(_enemy_spawn_points[x_coord], _enemy_spawn_points[y_coord])
 	return _arena.return_grid_position(vector)
 
 
@@ -164,7 +166,7 @@ func return_obj_coords(id: int) -> Vector2:
 	var y_coord = var_to_str(id)
 	x_coord += "_x"
 	y_coord += "_y"
-	var vector = Vector2(_protection_objs[x_coord], _protection_objs[y_coord])
+	var vector = Vector2i(_protection_objs[x_coord], _protection_objs[y_coord])
 	return _arena.return_grid_position(vector)
 
 

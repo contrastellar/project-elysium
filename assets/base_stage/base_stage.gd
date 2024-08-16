@@ -3,6 +3,7 @@ class_name BaseStage
 
 var scene_manager: SceneManager
 var game_manager: GameManager
+var tile_set: BaseGrid
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

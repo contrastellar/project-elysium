@@ -16,7 +16,8 @@ var _end_point: Vector2i
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	_astar.region = Rect2i(0, 0, 17, 9)
+	# Need to be +1, +1
+	_astar.region = Rect2i(0, 0, 16, 8)
 	_astar.cell_size = CELL_SIZE
 	_astar.offset = CELL_SIZE * 0.5
 	
@@ -39,7 +40,6 @@ func normalize_point_to_grid(pos: Vector2i) -> Vector2i:
 
 
 func return_grid_position(pos: Vector2) -> Vector2:
-	push_warning("return_grid_position() was invoked, this is used for the first and final positions")
 	return _astar.get_point_position(pos)
 
 
@@ -104,8 +104,9 @@ func is_ranged_droppable(pos: Vector2i) -> bool:
 
 
 func update_tiles() -> void:
+	push_warning("Being invoked")
 	for i in range(0, _astar.region.end.x):
 		for j in range(0, _astar.region.end.y):
-			var pos = Vector2i(i, j)
+			var pos = Vector2(i, j)
 			if get_cell_source_id(pos) == tiles.meteor:
-				_astar.set_point_solid(pos)
+				_astar.set_point_solid(pos, true)
