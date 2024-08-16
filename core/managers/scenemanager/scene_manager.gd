@@ -30,9 +30,9 @@ func set_current_scene(node: Node) -> void:
 
 func change_scene(scene: Node) -> void:
 	remove_child(_current_node)
-
+	
 	set_current_scene(null)
-
+	
 	add_child(scene)
 	set_current_scene(scene)
 	return

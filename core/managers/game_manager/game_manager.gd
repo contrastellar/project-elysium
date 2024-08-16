@@ -4,6 +4,8 @@ class_name GameManager
 signal game_over
 signal game_prepared
 
+@export var test_enemy: PackedScene
+
 var scene_manager: SceneManager
 var stage_scene: PackedScene
 var stage: BaseStage
@@ -45,6 +47,7 @@ func _ready() -> void:
 	scene_manager = get_parent()
 	assert(scene_manager is SceneManager)
 	
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -81,6 +84,7 @@ func prepare_game(new_mission_path: String) -> void:
 	stage = stage_scene.instantiate()
 	add_child(stage)
 	stage.set_stage_id(mission_uid)
+	_arena = stage.find_child("TileMap")
 
 
 func set_mission_param_path(path: String) -> String:
@@ -143,12 +147,35 @@ func get_tile_set() -> TileSet:
 	return output
 
 
-func spawn_enemy(spawn_id: int, obj_target: int) -> void:
-	pass 
+# Returns the coordinates (in the tile-map-coordinates) of a specific spawn coordinates
+func return_spawn_coords(id: int) -> Vector2i:
+	var x_coord = var_to_str(id)
+	var y_coord = var_to_str(id)
+	x_coord += "_x"
+	y_coord += "_y"
+	var vector = Vector2i(_enemy_spawn_points[x_coord], _enemy_spawn_points[y_coord])
+	return _arena.return_grid_position(vector)
+
+
+# Returns the coordinates (in tile-map-coordinates) of a specific protection objective
+func return_obj_coords(id: int) -> Vector2i:
+	var x_coord = var_to_str(id)
+	var y_coord = var_to_str(id)
+	x_coord += "_x"
+	y_coord += "_y"
+	var vector = Vector2i(_protection_objs[x_coord], _protection_objs[y_coord])
+	return _arena.return_grid_position(vector)
 
 
 func _on_spawn_enemy_pressed() -> void:
-	pass # Replace with function body.
+	if enemies_spawned < enemy_total:
+		var enemy = test_enemy.instantiate()
+		enemy.position = return_spawn_coords(0)
+		enemy.next_point = return_obj_coords(0)
+		
+		_arena.add_child(enemy)
+		
+		enemies_spawned = enemies_spawned + 1
 
 
 func _on_return_to_menu_pressed() -> void:
