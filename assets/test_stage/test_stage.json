@@ -4,7 +4,7 @@
 	"enemy_count": 99	,
 	"life_total": 2,
 	"enemy_spawns": {
-		"count": 2,
+		"count": 1,
 		"0_x": 14,
 		"0_y": 1,
 		"1_x": 14,
@@ -12,10 +12,10 @@
 	},
 	"obj":{
 		"count": 1,
-		"0_x": 14,
-		"0_y": 1,
-		"1_x": 14,
-		"1_y": 6
+		"0_x": 3,
+		"0_y": 6,
+		"1_x": 2,
+		"1_y": 1
 	},
 	"deployable_melee":{
 		"count": 0,

@@ -1,7 +1,7 @@
 extends TileMapLayer
 class_name BaseGrid
 
-enum tiles {melee = 1, meteor = 2, enemy_spawn = 3, elysium = 4, placable = 5, ranged = 6}
+enum tiles {melee = 2, meteor = 0, enemy_spawn = 3, elysium = 4, ranged = 6}
 
 const SIDE_SIZE = 64
 

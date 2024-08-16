@@ -5,7 +5,7 @@ enum State { IDLE, FOLLOW }
 
 @export var speed: float = 150.0
 
-var _tile_map
+var _tile_map: TileMapLayer
 var _path: PackedVector2Array
 var _state: int
 var _velocity = Vector2()
@@ -14,10 +14,12 @@ var _stage: BaseStage
 var _scene_manager: SceneManager
 
 const MASS = 10.0
-const ARRIVE_DISTANCE = 5.0
+const ARRIVE_DISTANCE = 6.0
 
 func _ready():
-	
+	_state = State.FOLLOW
+	_tile_map = get_parent()
+	assert(_tile_map is TileMapLayer)
 	return
 
 # Called when the node enters the scene tree for the first time.
@@ -34,7 +36,7 @@ func _process(delta: float) -> void:
 			return
 		next_point = _path[0]
 
-func _move_to(local_position) -> bool:
+func _move_to(local_position: Vector2) -> bool:
 	var desired_velocity = (local_position - position).normalized() * speed
 	var steering = desired_velocity - _velocity
 	_velocity += steering / MASS

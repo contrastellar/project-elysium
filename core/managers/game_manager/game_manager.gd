@@ -91,6 +91,7 @@ func set_mission_param_path(path: String) -> String:
 	mission_parameters_path = path
 	return mission_parameters_path
 
+
 func load_mission_parameters() -> void:
 	# Grab the file and access it
 	var file_opened = FileAccess.open(mission_parameters_path, FileAccess.READ)
@@ -148,22 +149,22 @@ func get_tile_set() -> TileSet:
 
 
 # Returns the coordinates (in the tile-map-coordinates) of a specific spawn coordinates
-func return_spawn_coords(id: int) -> Vector2i:
+func return_spawn_coords(id: int) -> Vector2:
 	var x_coord = var_to_str(id)
 	var y_coord = var_to_str(id)
 	x_coord += "_x"
 	y_coord += "_y"
-	var vector = Vector2i(_enemy_spawn_points[x_coord], _enemy_spawn_points[y_coord])
+	var vector = Vector2(_enemy_spawn_points[x_coord], _enemy_spawn_points[y_coord])
 	return _arena.return_grid_position(vector)
 
 
 # Returns the coordinates (in tile-map-coordinates) of a specific protection objective
-func return_obj_coords(id: int) -> Vector2i:
+func return_obj_coords(id: int) -> Vector2:
 	var x_coord = var_to_str(id)
 	var y_coord = var_to_str(id)
 	x_coord += "_x"
 	y_coord += "_y"
-	var vector = Vector2i(_protection_objs[x_coord], _protection_objs[y_coord])
+	var vector = Vector2(_protection_objs[x_coord], _protection_objs[y_coord])
 	return _arena.return_grid_position(vector)
 
 
