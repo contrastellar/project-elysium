@@ -19,7 +19,7 @@ func _ready():
 	_tile_map = get_parent()
 	assert(_tile_map is TileMapLayer)
 	# ATTENTION This one line is super important, you cannot instantiate
-	# the 
+	# the enemy node without this, else it breaks
 	_change_state(State.FOLLOW)
 	return
 
