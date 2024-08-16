@@ -1,7 +1,7 @@
 extends Node
 
 var scene_manager: SceneManager
-var gameplay_scene: PackedScene = preload("res://assets/base_stage/base_stage.tscn")
+var gameplay_scene: PackedScene = preload("res://assets/test_stage/test_stage.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
