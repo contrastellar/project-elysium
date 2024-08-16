@@ -80,6 +80,7 @@ func prepare_game(new_mission_path: String) -> void:
 	
 	stage = stage_scene.instantiate()
 	add_child(stage)
+	stage.set_stage_id(mission_uid)
 
 
 func set_mission_param_path(path: String) -> String:
@@ -128,16 +129,17 @@ func set_enemy_active_total(total: int) -> int:
 	enemies_spawned = total
 	return enemies_spawned
 
+
 func get_pc_data(idx: int) -> String:
 	return _pc_types[idx]
 
 
 func get_tile_set() -> TileSet:
 	var output: TileSet
-
+	
 	if mission_uid == "T":
 		output = preload("res://assets/test_stage/test_tile_set.tres")
-
+	
 	return output
 
 

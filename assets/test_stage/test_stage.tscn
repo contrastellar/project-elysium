@@ -7,6 +7,7 @@
 [sub_resource type="GDScript" id="GDScript_8fmjd"]
 script/source = "extends BaseStage
 
+var stage_id: String
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -15,7 +16,12 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	$Stage_ID.text = stage_id
+
+
+func set_stage_id(new_id: String) -> void:
+	stage_id = new_id
+	return
 "
 
 [sub_resource type="LabelSettings" id="LabelSettings_c0jqf"]
