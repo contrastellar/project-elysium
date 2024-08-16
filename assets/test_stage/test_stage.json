@@ -1,0 +1,38 @@
+{
+	"mission_uid": "TEST",
+	"mission_path": "res://assets/test_stage/test_stage.tscn",
+	"enemy_count": 99	,
+	"life_total": 2,
+	"enemy_spawns": {
+		"count": 2,
+		"0_x": 11,
+		"0_y": 1,
+		"1_x": 11,
+		"1_y": 7
+	},
+	"obj":{
+		"count": 1,
+		"0_x": 14,
+		"0_y": 1,
+		"1_x": 14,
+		"1_y": 6
+	},
+	"deployable_melee":{
+		"count": 0,
+		"0_x": 8,
+		"0_y": 6
+	},
+	"deployable_ranged":{
+		"count": -1
+	},
+	"pcs":{
+		"count": 2,
+		"0": "test",
+		"0_cost": 12,
+		"1": "test",
+		"1_cost": 12
+	},
+	"tile_set":{
+		"path": "res://assets/test_stage/test_tile_set.tres"
+	}
+}

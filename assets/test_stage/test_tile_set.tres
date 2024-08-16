@@ -1,3 +1,37 @@
-[gd_resource type="TileSet" format=3 uid="uid://to7mo544m4p8"]
+[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://to7mo544m4p8"]
+
+[ext_resource type="Texture2D" uid="uid://bw6mkyal6d02h" path="res://core/icons/kenney_simple-space/PNG/Default/meteor_detailedLarge.png" id="1_edpph"]
+[ext_resource type="Texture2D" uid="uid://b4q2b7i0ev270" path="res://core/icons/kenney_simple-space/PNG/Default/icon_plusLarge.png" id="2_aq4ty"]
+[ext_resource type="Texture2D" uid="uid://cxw6r1o05n368" path="res://core/icons/kenney_simple-space/PNG/Default/icon_exclamationLarge.png" id="3_3nlqj"]
+[ext_resource type="Texture2D" uid="uid://bpvqbv1csjf00" path="res://core/icons/kenney_simple-space/PNG/Default/ship_sidesA.png" id="4_q3q4p"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3n7w2"]
+texture = ExtResource("1_edpph")
+0:0/size_in_atlas = Vector2i(4, 4)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vhr15"]
+texture = ExtResource("2_aq4ty")
+0:0/size_in_atlas = Vector2i(4, 4)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7cuhc"]
+texture = ExtResource("3_3nlqj")
+0:0/size_in_atlas = Vector2i(4, 4)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e1v1d"]
+texture = ExtResource("4_q3q4p")
+0:0/size_in_atlas = Vector2i(4, 4)
+0:0/0 = 0
 
 [resource]
+tile_size = Vector2i(64, 64)
+custom_data_layer_0/name = "melee_droppable"
+custom_data_layer_0/type = 1
+custom_data_layer_1/name = "ranged_droppable"
+custom_data_layer_1/type = 1
+sources/2 = SubResource("TileSetAtlasSource_vhr15")
+sources/3 = SubResource("TileSetAtlasSource_7cuhc")
+sources/0 = SubResource("TileSetAtlasSource_3n7w2")
+sources/4 = SubResource("TileSetAtlasSource_e1v1d")
