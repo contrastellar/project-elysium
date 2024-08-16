@@ -145,3 +145,11 @@ func get_tile_set() -> TileSet:
 
 func spawn_enemy(spawn_id: int, obj_target: int) -> void:
 	pass 
+
+
+func _on_spawn_enemy_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_return_to_menu_pressed() -> void:
+	scene_manager.return_to_menu()

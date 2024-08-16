@@ -6,7 +6,7 @@
 script = ExtResource("1_u4886")
 
 [node name="SpawnEnemy" type="Button" parent="."]
-z_index = 99
+z_index = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -18,7 +18,7 @@ grow_horizontal = 0
 text = "Spawn Enemy"
 
 [node name="ReturnToMenu" type="Button" parent="."]
-z_index = 99
+z_index = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -26,3 +26,6 @@ offset_left = -130.0
 offset_bottom = 31.0
 grow_horizontal = 0
 text = "Return to Menu"
+
+[connection signal="pressed" from="SpawnEnemy" to="." method="_on_spawn_enemy_pressed"]
+[connection signal="pressed" from="ReturnToMenu" to="." method="_on_return_to_menu_pressed"]

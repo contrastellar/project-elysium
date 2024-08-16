@@ -33,6 +33,7 @@ script = SubResource("GDScript_8fmjd")
 [node name="Background" type="ColorRect" parent="."]
 offset_right = 1270.0
 offset_bottom = 720.0
+mouse_filter = 2
 color = Color(0.0430392, 0.0430392, 0.0430391, 1)
 
 [node name="Stage_ID" type="Label" parent="."]

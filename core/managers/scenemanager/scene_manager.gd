@@ -19,9 +19,14 @@ func _process(delta: float) -> void:
 	pass
 
 
+func return_to_menu() -> void:
+	change_scene(first_scene.instantiate())
+
+
 func set_current_scene(node: Node) -> void:
 	_current_node = node
 	pass
+
 
 func change_scene(scene: Node) -> void:
 	remove_child(_current_node)
@@ -30,8 +35,8 @@ func change_scene(scene: Node) -> void:
 
 	add_child(scene)
 	set_current_scene(scene)
-	_game_manager = scene
 	return
 
+
 func load_test_scene() -> void:
-	_game_manager.prepare_game("res://assets/test_stage/test_stage.json")
+	_current_node.prepare_game("res://assets/test_stage/test_stage.json")
