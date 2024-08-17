@@ -11,6 +11,7 @@ func _ready() -> void:
 	game_manager = get_parent()
 	assert(game_manager.get_parent() is SceneManager)
 	scene_manager = game_manager.get_parent()
+	tile_set = get_child(2)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=4 uid="uid://c363i12jwhylw"]
+
+[ext_resource type="Script" path="res://core/managers/deck/base_deck.gd" id="1_rgy80"]
+[ext_resource type="Texture2D" uid="uid://c5luasnlr27yt" path="res://core/icons/kenney_simple-space/PNG/Default/ship_B.png" id="2_apyon"]
+[ext_resource type="Script" path="res://core/managers/deck/tile_map_layer.gd" id="2_ku52f"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yhdby"]
+texture = ExtResource("2_apyon")
+0:0/size_in_atlas = Vector2i(4, 4)
+0:0/0 = 0
+0:0/0/custom_data_0 = true
+
+[sub_resource type="TileSet" id="TileSet_dbih1"]
+tile_size = Vector2i(100, 100)
+custom_data_layer_0/name = "droppable"
+custom_data_layer_0/type = 1
+sources/1 = SubResource("TileSetAtlasSource_yhdby")
+
+[node name="BaseDeck" type="Node2D"]
+script = ExtResource("1_rgy80")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+visible = false
+tile_map_data = PackedByteArray("AAAAAAAAAQAAAAAAAAABAAAAAQAAAAAAAAACAAAAAQAAAAAAAAADAAAAAQAAAAAAAAAFAAAAAQAAAAAAAAAEAAAAAQAAAAAAAAA=")
+tile_set = SubResource("TileSet_dbih1")
+script = ExtResource("2_ku52f")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -16.0
+offset_right = 640.0
+offset_bottom = 166.0
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.513726, 0.513726, 0.513726, 0.47451)

@@ -10,7 +10,8 @@ var scene_manager: SceneManager
 var stage_scene: PackedScene
 var stage: BaseStage
 var _arena: BaseGrid # Will be the playable_grid
-var _deck: TileMapLayer # Will be where ANGELs are "stored"
+var _deck_scene: PackedScene = preload("res://core/managers/deck/base_deck.tscn")
+var _deck: Deck # Will be where ANGELs are "stored"
 
 var stage_id: String
 
@@ -36,7 +37,7 @@ var _ranged_tile_count: int
 
 # PC related variables
 var _pc_count: int
-var _pc_types: Array = Array()
+var pc_types: Array = Array()
 
 var _is_setup: bool = false
 
@@ -46,7 +47,6 @@ var __game_over_sent: bool
 func _ready() -> void:
 	scene_manager = get_parent()
 	assert(scene_manager is SceneManager)
-	
 	
 
 
@@ -86,6 +86,9 @@ func prepare_game(new_mission_path: String) -> void:
 	stage.set_stage_id(mission_uid)
 	_arena = stage.find_child("TileMap")
 	_arena.update_tiles()
+	_deck = _deck_scene.instantiate()
+	_deck.position = Vector2i(650, 600)
+	add_child(_deck)
 	game_prepared.emit()
 	return
 
@@ -117,7 +120,7 @@ func load_mission_parameters() -> void:
 	# Handle PC variables
 	_pc_count = mission_parameters["pcs"]["count"]
 	for i in _pc_count:
-		_pc_types.append(mission_parameters["pcs"][str(i)])
+		pc_types.append(mission_parameters["pcs"][str(i)])
 	
 	return
 
@@ -138,7 +141,7 @@ func set_enemy_active_total(total: int) -> int:
 
 
 func get_pc_data(idx: int) -> String:
-	return _pc_types[idx]
+	return pc_types[idx]
 
 
 func get_tile_set() -> TileSet:
