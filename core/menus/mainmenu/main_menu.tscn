@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://ey8jh6k4bvn3"]
 
-[ext_resource type="Script" path="res://core/menus/mainmenu/main_menu.gd" id="1_rrji5"]
+[ext_resource type="Script" uid="uid://cymflxspd7w13" path="res://core/menus/mainmenu/main_menu.gd" id="1_rrji5"]
 [ext_resource type="FontFile" uid="uid://o1jiq4v6yjjt" path="res://core/fonts/GeosansLight.ttf" id="2_lg8bs"]
 [ext_resource type="Texture2D" uid="uid://4x1nul1qjxhs" path="res://core/menus/mainmenu/Elysium_logo_test.png" id="3_lyd4g"]
 

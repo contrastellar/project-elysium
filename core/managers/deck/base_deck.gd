@@ -50,4 +50,4 @@ func is_droppable(pos: Vector2) -> bool:
 
 
 func return_global_grid_position(pos: Vector2) -> Vector2:
-	return tile_map.return_global_grid_position(pos)
+	return tile_map.return_global_grid_position(pos) + Vector2(50, 0)

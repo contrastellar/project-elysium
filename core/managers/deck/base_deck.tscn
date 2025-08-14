@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=4 uid="uid://c363i12jwhylw"]
 
-[ext_resource type="Script" path="res://core/managers/deck/base_deck.gd" id="1_rgy80"]
+[ext_resource type="Script" uid="uid://ntv71l3j5vr4" path="res://core/managers/deck/base_deck.gd" id="1_rgy80"]
 [ext_resource type="Texture2D" uid="uid://c5luasnlr27yt" path="res://core/icons/kenney_simple-space/PNG/Default/ship_B.png" id="2_apyon"]
-[ext_resource type="Script" path="res://core/managers/deck/tile_map_layer.gd" id="2_ku52f"]
+[ext_resource type="Script" uid="uid://blebpm2yisx7d" path="res://core/managers/deck/tile_map_layer.gd" id="2_ku52f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yhdby"]
 texture = ExtResource("2_apyon")

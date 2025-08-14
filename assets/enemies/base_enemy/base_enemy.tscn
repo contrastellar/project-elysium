@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://blonccd07m8qu"]
 
-[ext_resource type="Script" path="res://assets/enemies/base_enemy/base_enemy.gd" id="1_bmcf3"]
+[ext_resource type="Script" uid="uid://ns67he8jxgrw" path="res://assets/enemies/base_enemy/base_enemy.gd" id="1_bmcf3"]
 [ext_resource type="Texture2D" uid="uid://daom2f4a5q445" path="res://assets/enemies/base_enemy/1.png" id="2_7x7m8"]
 
 [node name="BaseEnemy" type="Node2D"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://o1jiq4v6yjjt" path="res://core/fonts/GeosansLight.ttf" id="1_cnlld"]
 [ext_resource type="TileSet" uid="uid://to7mo544m4p8" path="res://assets/test_stage/test_tile_set.tres" id="1_odpoi"]
-[ext_resource type="Script" path="res://assets/test_stage/tile_map.gd" id="3_18mh2"]
+[ext_resource type="Script" uid="uid://bxm8h1lg14a15" path="res://assets/test_stage/tile_map.gd" id="3_18mh2"]
 
 [sub_resource type="GDScript" id="GDScript_8fmjd"]
 script/source = "extends BaseStage

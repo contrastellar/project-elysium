@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://db4gjersph71w"]
 
 [ext_resource type="FontFile" uid="uid://o1jiq4v6yjjt" path="res://core/fonts/GeosansLight.ttf" id="1_g6lf5"]
-[ext_resource type="Script" path="res://assets/base_stage/base_stage.gd" id="1_r5q4w"]
+[ext_resource type="Script" uid="uid://dsgraqvo71f1i" path="res://assets/base_stage/base_stage.gd" id="1_r5q4w"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_dmxc8"]
 font = ExtResource("1_g6lf5")

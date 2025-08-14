@@ -61,16 +61,22 @@ func _process(delta):
 			
 			var tween = get_tree().create_tween()
 			
-			if is_inside_droppable and _type_of_droppable == type._grid:
-				droppable_position = _deck.return_global_grid_position(mouse_pos)
-				tween.tween_property(self, "global_position", droppable_position, 0.1).set_ease(Tween.EASE_OUT)
+			if _placement_grid.is_tile_open(_deck.tile_map.local_to_map(mouse_pos)):
+				if is_inside_droppable and _type_of_droppable == type._grid:
+					droppable_position = _deck.return_global_grid_position(mouse_pos)
+					_placement_grid.set_tile_closed(_deck.tile_map.local_to_map(mouse_pos))
+					tween.tween_property(self, "global_position", droppable_position, 0.1).set_ease(Tween.EASE_OUT)
+					
+				elif is_inside_droppable and _type_of_droppable == type._placement_grid:
+					droppable_position = _placement_grid.return_global_grid_position(mouse_pos)
+					_placement_grid.set_tile_open(_deck.tile_map.local_to_map(initial_pos))
+					tween.tween_property(
+						self, "global_position", 
+						droppable_position, 0.1
+						).set_ease(Tween.EASE_OUT)
 				
-			elif is_inside_droppable and _type_of_droppable == type._placement_grid:
-				droppable_position = _placement_grid.return_global_grid_position(mouse_pos)
-				tween.tween_property(self, "global_position", droppable_position, 0.1).set_ease(Tween.EASE_OUT)
-				
-			else:
-				tween.tween_property(self, "global_position", initial_pos, 0.1).set_ease(Tween.EASE_OUT)
+				else:
+					tween.tween_property(self, "global_position", initial_pos, 0.1).set_ease(Tween.EASE_OUT)
 			
 			
 

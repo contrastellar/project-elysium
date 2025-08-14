@@ -14,10 +14,15 @@ var _path: PackedVector2Array
 var _start_point: Vector2i
 var _end_point: Vector2i
 
+# Code to manage "is open" array
+const MAP_SIZE_X = 16
+const MAP_SIZE_Y = 8
+var open_array = Array()
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Need to be +1, +1
-	_astar.region = Rect2i(0, 0, 16, 8)
+	_astar.region = Rect2i(0, 0, MAP_SIZE_X, MAP_SIZE_Y)
 	_astar.cell_size = CELL_SIZE
 	_astar.offset = CELL_SIZE * 0.5
 	
@@ -28,6 +33,14 @@ func _ready() -> void:
 	_astar.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_NEVER
 	
 	_astar.update()
+	
+	# initialize open array
+	open_array.resize(MAP_SIZE_X)
+	for i in range(MAP_SIZE_X):
+		open_array[i] = Array()
+		open_array[i].resize(MAP_SIZE_Y)
+		for j in range(MAP_SIZE_Y):
+			open_array[i][j] = 0
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -110,3 +123,18 @@ func update_tiles() -> void:
 			var pos = Vector2(i, j)
 			if get_cell_source_id(pos) == tiles.meteor:
 				_astar.set_point_solid(pos, true)
+
+
+func set_tile_open(pos: Vector2) -> void:
+	open_array[pos.x][pos.y] = 0
+
+
+func set_tile_closed(pos: Vector2) -> void:
+	open_array[pos.x][pos.y] = 1
+
+
+func is_tile_open(pos: Vector2) -> bool:
+	if open_array[pos.x][pos.y] == 0:
+		return true
+	else:
+		return false
